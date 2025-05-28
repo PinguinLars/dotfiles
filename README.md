@@ -4,3 +4,5 @@
 Some of the backgrounds were taken from there also, but some from minecraft.net
 
 I used chezmoi for this
+
+**Nvim is the lazy vim template with some extra things added**

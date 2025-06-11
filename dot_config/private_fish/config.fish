@@ -1,6 +1,7 @@
 if status is-interactive
     # Commands to run in interactive sessions can go here
     set -U fish_user_paths /home/lars/.local/share/JetBrains/Toolbox/scripts $fish_user_paths
+    set -gx EDITOR nvim
     # Set up fzf key bindings
     fzf --fish | source
 end

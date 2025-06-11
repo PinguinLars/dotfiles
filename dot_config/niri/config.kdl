@@ -17,7 +17,7 @@ input {
             // For example:
             // layout "us,ru"
             // options "grp:win_space_toggle,compose:ralt,ctrl:nocaps"
-            options "caps:swapescape" 
+           options "caps:swapescape" 
         }
     }
 
@@ -367,6 +367,7 @@ binds {
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+T { spawn "kitty"; }
+    //Mod+Shift+T { spawn "warp-terminal"; }
     Mod+D { spawn "fuzzel"; }
     // Alt+Space { spawn "fuzzel"; }
     Super+Alt+L { spawn "swaylock"; }

@@ -34,3 +34,4 @@ Plug 'tpope/vim-commentary'
 "custom
 set relativenumber
 set clipboard+=unnamedplus
+set ideajoin

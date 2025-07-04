@@ -1,0 +1,153 @@
+{
+  "layer": "top",
+  "position": "top",
+  "modules-left": [
+    "niri/workspaces",
+    "clock",
+    "bluetooth",
+    "pulseaudio",
+    "backlight",
+    "privacy"
+  ],
+  "modules-center": [
+    "niri/window"
+  ],
+  "modules-right": [
+    "systemd-failed-units",
+    "temperature",
+    "network",
+    "cpu",
+    "power-profiles-daemon",
+    "memory",
+    "battery"
+  ],
+  "clock": {
+    //The L is needed
+    "format": "{:L%H:%M}",
+    "local": "nl_NL.utf8",
+    //Displays the clock tooltip in Dutch
+    "tooltip-format": "{:L%a %d %b %H:%M}"
+  },
+  "network": {
+    "format-wifi": "  {signalStrength}%",
+    "tooltip-format-wifi": "Connected to {essid} ({signalStrength}%)",
+    "format-ethernet": "",
+    "tooltip-format-ethernet": "Connected via ethernet ({ipaddr})",
+    "format-disconnected": "Disconnected",
+    "tooltip-format-disconnected": "Disconnected"
+  },
+  "cpu": {
+    "format": " {usage}%"
+  },
+  "memory": {
+    "format": " {used}G",
+    "tooltip-format": "{used}GiB used of the {total}GiB total"
+  },
+  "battery": {
+    "interval": 60,
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{capacity}% {icon}",
+    "format-charging": "{capacity}% ",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "max-length": 25,
+    "tooltip-format": "{timeTo}\n{power}W\nHealth: {health}%"
+  },
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+    "tooltip": true,
+    "format-icons": {
+      "default": "",
+      "performance": "",
+      "balanced": "",
+      "power-saver": ""
+    }
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-bluetooth": "{icon} {volume}% ",
+    "format-muted": "",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "phone-muted": "",
+      "portable": "",
+      "car": "",
+      "default": [
+        "",
+        ""
+      ]
+    },
+    "scroll-step": 0.2,
+    "on-click": "pavucontrol",
+    "ignored-sinks": [
+      "Easy Effects Sink"
+    ]
+  },
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{icon} {percent}%",
+    "format-icons": [
+      "",
+      ""
+    ],
+    "scroll-step": 0.2
+  },
+  "niri/window": {
+    "max-length": 50,
+    "scrolling": true
+  },
+  "bluetooth": {
+    "format": " {status}",
+    "format-disabled": "",
+    "format-connected": " {num_connections} connected",
+    "tooltip-format": "{controller_alias}\t{controller_address}",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
+  },
+  "systemd-failed-units": {
+    "hide-on-ok": false,
+    "format": "✗ {nr_failed}",
+    "format-ok": "✓",
+    "system": true,
+    "user": false
+  },
+  "privacy": {
+    "icon-spacing": 4,
+    "icon-size": 18,
+    "transition-duration": 250,
+    "modules": [
+      {
+        "type": "screenshare",
+        "tooltip": true,
+        "tooltip-icon-size": 24
+      },
+      {
+        "type": "audio-out",
+        "tooltip": true,
+        "tooltip-icon-size": 24
+      },
+      {
+        "type": "audio-in",
+        "tooltip": true,
+        "tooltip-icon-size": 24
+      }
+    ]
+  },
+  "temperature": {
+    "thermal-zone": 8,
+    "critical-threshold": 90,
+    "format": " {temperatureC}°C"
+  }
+}

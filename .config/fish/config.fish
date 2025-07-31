@@ -1,5 +1,7 @@
 if status is-interactive
+
     set -x EDITOR nvim
+    #    hellwal -i ~/background/weeb.png --neon-mode &> /dev/null
 end
 
 function fish_user_key_bindings

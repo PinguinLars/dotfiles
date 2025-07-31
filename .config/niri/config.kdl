@@ -17,20 +17,31 @@ input {
   disable-power-key-handling
 }
 
+cursor {
+    hide-after-inactive-ms 5000
+}
+
 gestures {
   hot-corners {
     off
   }
 }
 
+spawn-at-startup "swaylock" //Starts background app at device startup with autologin (which I have)
 spawn-at-startup "/usr/lib/polkit-kde-authentication-agent-1"
 spawn-at-startup "/usr/lib/xdg-desktop-portal"
 spawn-at-startup "/usr/lib/xdg-desktop-portal-gtk"
 spawn-at-startup "/usr/lib/xdg-desktop-portal-gnome"
 spawn-at-startup "xwayland-satellite"
-spawn-at-startup "swaybg" "-i" "/home/lars/background/penguin.jpg"
+//spawn-at-startup "bash" "-c" "swaybg -i home/lars/background/weeb.png &" //done with systemd service
 spawn-at-startup "waybar"
-spawn-at-startup "swaylock" //Starts background app at device startup with autologin (which I have
+
+prefer-no-csd
+
+output "eDP-1" {
+  mode "1366x768@48.006"
+  focus-at-startup
+}
 
 // Needed for x11 apps, like intellij and steam
 environment {
@@ -218,3 +229,7 @@ binds {
 }
 
 overview { workspace-shadow { }; }
+
+hotkey-overlay {
+    skip-at-startup
+}

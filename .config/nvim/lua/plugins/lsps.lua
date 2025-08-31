@@ -9,7 +9,7 @@ return {
     "mason-org/mason-lspconfig.nvim",
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "ts_ls", "kotlin_language_server" },
+        ensure_installed = { "lua_ls", "clangd" },
       })
     end,
   },
@@ -28,12 +28,25 @@ return {
       lspconfig.html.setup({
         capabilities = capabilities,
       })
-      lspconfig.kotlin_language_server.setup({
+      --lspconfig.kotlin_lsp.setup({
+      --	capabilities = capabilities,
+      --})
+      lspconfig.clangd.setup({
         capabilities = capabilities,
+        cmd = { "clangd", "--background-index" },
       })
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
       vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
       vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
+    end,
+  },
+  {
+    "rachartier/tiny-inline-diagnostic.nvim",
+    event = "VeryLazy",
+    priority = 1000,
+    config = function()
+      require("tiny-inline-diagnostic").setup()
+      vim.diagnostic.config({ virtual_text = false }) -- Disable default virtual text
     end,
   },
 }

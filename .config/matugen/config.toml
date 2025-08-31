@@ -1,0 +1,4 @@
+[config.wallpaper]
+command = "swaybg"
+argumnts = ["-i"]
+set = true
